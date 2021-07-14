@@ -17,7 +17,8 @@ public class ForTest3 {
 		for(int sec=0;sec>=0;sec++) {
 			System.out.println(sec+"초");
 			if(sec == cho) {
-				sec = 59;
+				//sec = 59;
+				break;
 			}
 		}
 		
