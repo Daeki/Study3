@@ -1,17 +1,74 @@
 package com.iu.s3;
 
+import java.util.Scanner;
+
 public class WhileTest2 {
 	
 	public static void main(String[] args) {
 		System.out.println("WhileTest2 Start");
-		
+		Scanner sc = new Scanner(System.in);
 		int id = 1234;
 		int pw = 5678;
 		
+		boolean flag = true;
 		//1. 로그인
 		//   - id, pw 입력
 		//   - 로그인 판단
 		//2. 종  료
+		
+		while(flag) {
+			System.out.println("1.로그인  2.종료");
+			int select = sc.nextInt();
+			
+			if(select==1) {
+				System.out.println("ID 입력");
+				int yId = sc.nextInt();
+				System.out.println("PW 입력");
+				int yPw = sc.nextInt();
+				
+				if(yId == id && yPw == pw) {
+					System.out.println("로그인 성공");
+					flag=false;
+				}else {
+					System.out.println("로그인 실패");
+				}
+				
+			}else {
+				System.out.println("종료");
+				break;
+				//flag=false;
+			}
+			
+		}
+		// 로그인 판단
+		//끝날 때 꼭 삭제 ㅜ!!!!!!!!!!!!!!!!!!!!!!!
+		flag=false;
+		if(!flag) {
+			System.out.println("로그인 성공 했을 때 실행");
+			
+			int level= 1;
+			int gold = 0;
+			
+			for(level=1;level<15;level++) {
+				//Gold 지급
+				if(level%5==0) {
+					//level*200
+					gold = gold + level/5*1000;
+					System.out.println(level/5*1000+" gold 지급");
+				}
+				
+				System.out.println("현재레벨 : "+level);
+				
+				//사냥
+				for(int mon=0;mon<level*3;mon++) {
+					System.out.println(mon+1+ " 마리 사냥 성공");//3
+				}
+				System.out.println("==== 축 레벨업 ====");
+			}
+			System.out.println("최종 레벨 : "+level);
+			gold = gold + level/5*1000;
+			System.out.println("최종 Gold : "+gold);
+		}
 		
 		
 		//로그인성공, 로그인안됐거나
