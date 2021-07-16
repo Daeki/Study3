@@ -21,7 +21,8 @@ public class Array_5 {
 			System.out.println("1. 정보출력");
 			System.out.println("2. 정보추가");
 			System.out.println("3. 정보삭제");
-			System.out.println("4. 종   료");
+			System.out.println("4. 검색삭제");
+			System.out.println("5. 종   료");
 			int select = sc.nextInt();
 			
 			switch(select) {
@@ -65,6 +66,34 @@ public class Array_5 {
 				}
 				
 				ar = ar3;
+				
+				break;
+			case 4 :
+				
+				if(ar.length==0) {
+					System.out.println("data가 없어요");
+					continue;
+				}
+				
+				System.out.println("삭제할 인덱스 번호 입력");
+				int idx = sc.nextInt();
+				
+				if(idx >= ar.length || idx<0) {
+					System.out.println("범위를 벗어남");
+					continue;
+				}
+				
+				int [] ar4 = new int [ar.length-1];
+				int index=0;
+				for(int i=0;i<ar.length;i++) {
+					if(idx==i) {
+						continue;
+					}
+					ar4[index] = ar[i];
+					index++;
+				}
+				
+				ar = ar4;
 				
 				break;
 			default:
